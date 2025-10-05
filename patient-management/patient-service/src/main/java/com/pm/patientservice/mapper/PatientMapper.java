@@ -6,7 +6,7 @@ import com.pm.patientservice.model.Patient;
 
 import java.time.LocalDate;
 
-public class PatientMapper {
+public class    PatientMapper {
     public static PatientResponseDTO toDTO(Patient patient){
         PatientResponseDTO patientDTO = new PatientResponseDTO();
         patientDTO.setId(patient.getId().toString());
