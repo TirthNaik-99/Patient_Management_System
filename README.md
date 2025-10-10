@@ -110,7 +110,7 @@ End-to-end **Integration Tests** verifying multi-service interactions:
 - **JUnit 5** – for structured test execution  
 
 ### 📦 Repository Structure
-
+```java
 /pms-root
 │
 ├── patient-service/
