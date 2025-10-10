@@ -74,11 +74,6 @@ Each microservice includes its own `Dockerfile` supporting **multi-stage builds*
 1. **Build Stage:** Uses Maven + JDK image to compile code and dependencies  
 2. **Runner Stage:** Uses a minimal OpenJDK runtime image to execute the `.jar`  
 
-To build and run locally:
-```bash
-docker build -t pms-patient-service ./patient-service
-docker run -d -p 8081:8081 --name patient-service pms-patient-service
-
 
 ## ☁️ Deployment Strategy — Infrastructure as Code (IaC)
 
@@ -137,3 +132,9 @@ given()
 │
 └── tests/
     └── integration/
+
+
+To build and run locally:
+```bash
+docker build -t pms-patient-service ./patient-service
+docker run -d -p 8081:8081 --name patient-service pms-patient-service
