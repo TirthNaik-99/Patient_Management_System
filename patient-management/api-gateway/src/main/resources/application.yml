@@ -1,0 +1,46 @@
+server:
+  port: 4004
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        ## http://localhost:4004/auth/login then goes to api gateway
+        ## API GATEWAY -> http://auth-service:4005/login
+        - id: auth-service-route
+          uri: http://auth-service:4005
+          predicates:
+            - Path=/auth/**
+          filters:
+            - StripPrefix=1
+
+        ## There was a error when i tried to run the get endpoint as here server was shown in the video but we need to remove the server because gateway.server.routes do not exist
+        ## So we need to remove the server for executing this for endpoints to be in good run state
+          ## REST CLIENT -> http://localhost:4004/api/patients
+          ## API GATEWAY -> http://patient-service:4000/patients
+          ## PATIENT SERVICE (SPRING BOOT APP) -> /patients -> Patients Array
+        - id: patient-service-route
+          uri: http://patient-service:4000
+          predicates:
+          ## ** is a wild card that if api/patients gets called it will search from http://patient-service:4000 only
+            - Path=/api/patients/**
+          filters:
+            - StripPrefix=1
+            - JwtValidation
+
+          ## REST-CLIENT -> http://localhost:4004/api-docs/patients
+          ## API-GATEWAY -> http://patient-service:4000/v3/api-docs
+        - id: api-docs-patient-route
+          uri: http://patient-service:4000
+          predicates:
+            - Path=/api-docs/patients
+          filters:
+            - RewritePath=/api-docs/patients,/v3/api-docs
+
+
+        - id: api-docs-auth-route
+          uri: http://auth-service:4005
+          predicates:
+            - Path=/api-docs/auth
+          filters:
+            - RewritePath=/api-docs/auth,/v3/api-docs

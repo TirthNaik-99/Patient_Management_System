@@ -1,0 +1,11 @@
+### Login Request to retrieve a token
+POST http://lb-efe57932.elb.localhost.localstack.cloud:4004/auth/login
+Content-Type: application/json
+
+{
+  "email": "testuser@test.com",
+  "password": "password123"
+}
+
+> {% client.global.set("token", response.body.token) %}
+### make the request, parse the response in the body and going to take the token value from the response and assign it to global variable where in our case its token
