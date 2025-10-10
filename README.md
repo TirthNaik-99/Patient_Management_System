@@ -10,6 +10,21 @@ The project demonstrates how to design, build, and deploy **production-grade mic
 The **Patient Management System (PMS)** provides an end-to-end understanding of how complex distributed systems work in the real world.  
 It covers everything from **backend microservices** and **secure API gateways** to **event-driven architecture** and **cloud deployment automation** using **AWS CDK** and **LocalStack**.
 
+/pms-root
+│
+├── patient-service/
+├── auth-service/
+├── billing-service/
+├── analytic-service/
+│
+├── api-gateway/
+├── docker-compose.yml
+├── cdk/
+│   ├── src/
+│   └── localstack.template.json
+│
+└── tests/
+    └── integration/
 ---
 
 ## 🧠 Core Technology Stack
@@ -108,6 +123,7 @@ End-to-end **Integration Tests** verifying multi-service interactions:
 - **Rest Assured** – for clean, maintainable API tests  
 - **JUnit 5** – for structured test execution  
 
+
 ### 🧪 Example Test Scenario
 ```java
 given()
@@ -117,21 +133,7 @@ given()
   .statusCode(200)
   .body("size()", greaterThan(0));
 
-/pms-root
-│
-├── patient-service/
-├── auth-service/
-├── billing-service/
-├── analytic-service/
-│
-├── api-gateway/
-├── docker-compose.yml
-├── cdk/
-│   ├── src/
-│   └── localstack.template.json
-│
-└── tests/
-    └── integration/
+
 
 
 To build and run locally:
