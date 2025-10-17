@@ -1,13 +1,12 @@
 ### POST request to example server
-POST http://lb-efe57932.elb.localhost.localstack.cloud:4004/api/patients
+POST http://lb-a7906e04.elb.localhost.localstack.cloud:4004/api/patients
 Content-Type: application/json
 Authorization: Bearer {{token}}
 
 {
-  "name": "Test User ",
-  "email": "tewtuser369@example.com",
+  "name": "Tirth Naik ",
+  "email": "tirthgonai@northeastern.edu",
   "address": "123 main street23",
   "dateOfBirth": "2002-09-09",
-  "registeredDate": "2025-09-28"
+  "registeredDate": "2007-09-28"
 }
-

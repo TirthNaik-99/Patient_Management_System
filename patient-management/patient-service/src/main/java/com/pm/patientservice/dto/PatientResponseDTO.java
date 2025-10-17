@@ -5,6 +5,7 @@ public class PatientResponseDTO {
     private String name;
     private String email;
     private String address;
+    private String dateOfBirth;
     //    we only store the register date just for auditing reason and there is no reason
     //    this to the frontend
 
@@ -40,12 +41,12 @@ public class PatientResponseDTO {
         this.address = address;
     }
 
-    public String getDatOfBirth() {
-        return datOfBirth;
+    public String getDateOfBirth() {
+        return dateOfBirth;
     }
 
-    public void setDatOfBirth(String datOfBirth) {
-        this.datOfBirth = datOfBirth;
+    public void setDateOfBirth(String datOfBirth) {
+        this.dateOfBirth = datOfBirth;
     }
 
     private String datOfBirth;
